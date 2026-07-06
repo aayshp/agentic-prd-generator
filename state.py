@@ -8,6 +8,7 @@ from typing import TypedDict, List, Dict, Optional
 
 class PRDState(TypedDict):
     idea: str                          # raw input from the user
+    author_name: str                   # who this PRD is prepared by
     requirements: Dict                 # output of Requirement Agent
     persona: Dict                      # output of Persona Agent
     prioritization: Dict               # output of Prioritization Agent
