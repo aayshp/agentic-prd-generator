@@ -1,3 +1,5 @@
 langgraph>=0.2.0
 langchain-groq>=0.2.0
 streamlit>=1.35.0
+markdown>=3.6
+xhtml2pdf>=0.2.15
