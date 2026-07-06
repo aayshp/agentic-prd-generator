@@ -1,10 +1,7 @@
-"""
-THE APP - what visitors actually see and click. Built with Streamlit.
-Shows each agent's output as it happens, so people can SEE the pipeline
-working - not just get a final PRD with no visibility into how it got there.
-"""
+
 import streamlit as st
 from graph import run_pipeline
+from pdf_export import markdown_to_pdf_bytes
 
 st.set_page_config(page_title="Agentic PRD Generator", page_icon="🧩", layout="wide")
 
@@ -35,11 +32,22 @@ if st.button("Run the agent pipeline", type="primary", disabled=not idea):
 
     with tab1:
         st.markdown(result["prd_draft"])
-        st.download_button(
-            "Download PRD as Markdown",
-            result["prd_draft"],
-            file_name="prd_output.md",
-        )
+
+        col1, col2 = st.columns(2)
+        with col1:
+            pdf_bytes = markdown_to_pdf_bytes(result["prd_draft"])
+            st.download_button(
+                "📄 Download as PDF",
+                pdf_bytes,
+                file_name="prd_output.pdf",
+                mime="application/pdf",
+            )
+        with col2:
+            st.download_button(
+                "Download as Markdown (for developers)",
+                result["prd_draft"],
+                file_name="prd_output.md",
+            )
 
     with tab2:
         st.write("This is what each agent actually did, in order:")
