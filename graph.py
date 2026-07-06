@@ -37,10 +37,11 @@ def build_graph():
     return graph.compile()
 
 
-def run_pipeline(idea: str):
+def run_pipeline(idea: str, author_name: str = ""):
     app = build_graph()
     initial_state: PRDState = {
         "idea": idea,
+        "author_name": author_name,
         "requirements": {},
         "persona": {},
         "prioritization": {},
