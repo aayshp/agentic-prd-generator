@@ -30,10 +30,16 @@ do not change the name. Return the complete revised PRD in markdown."""
 Persona: {state['persona']}
 Feature Prioritization: {state['prioritization']}
 
-Write a full PRD in markdown with these sections: Problem Statement,
-Objectives, Target Users, User Stories, Functional Requirements,
-Non-Functional Requirements, Success Metrics/KPIs, Risks, Timeline,
-Explicitly Out of Scope.
+Write a full PRD in markdown with EXACTLY these sections, in this order, and
+no other sections: Problem Statement, Objectives, Target Users, User Stories,
+Functional Requirements, Non-Functional Requirements, Success Metrics/KPIs,
+Risks, Timeline, Explicitly Out of Scope.
+
+For User Stories: write 4-6 stories max, each in the exact format
+"As a [specific role], I want [specific capability], so that [specific
+benefit]." Keep each one to one sentence. Do not add sub-bullets, acceptance
+criteria, or extra detail under each story - that belongs in Functional
+Requirements instead.
 
 At the very top, include:
 Product: [a short product name you choose]
