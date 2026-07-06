@@ -1,4 +1,8 @@
-
+"""
+THE APP - what visitors actually see and click. Built with Streamlit.
+Shows each agent's output as it happens, so people can SEE the pipeline
+working - not just get a final PRD with no visibility into how it got there.
+"""
 import streamlit as st
 from graph import run_pipeline
 from pdf_export import markdown_to_pdf_bytes
@@ -12,6 +16,8 @@ st.caption(
     "work back for revision until it's actually good enough."
 )
 
+author_name = st.text_input("Your name (appears as 'Prepared by' on the PRD):", value="")
+
 idea = st.text_area(
     "Describe your product idea:",
     placeholder="e.g. A predictive temperature alert system for a pharma "
@@ -21,7 +27,7 @@ idea = st.text_area(
 
 if st.button("Run the agent pipeline", type="primary", disabled=not idea):
     with st.spinner("Running agents... this takes 30-60 seconds"):
-        result = run_pipeline(idea)
+        result = run_pipeline(idea, author_name)
 
     st.success(
         f"Done — approved after {result['revision_count']} review round"
