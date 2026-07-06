@@ -21,9 +21,11 @@ A Reviewer Agent found these issues:
 {state['review_feedback']}
 
 Rewrite the full PRD, fixing every issue listed. Keep everything that
-was already good. Return the complete revised PRD in markdown."""
+was already good. Keep the "Prepared by" line exactly as it currently is,
+do not change the name. Return the complete revised PRD in markdown."""
     else:
         # First draft
+        author = state.get("author_name") or "Product Manager"
         prompt = f"""Requirements: {state['requirements']}
 Persona: {state['persona']}
 Feature Prioritization: {state['prioritization']}
@@ -31,7 +33,14 @@ Feature Prioritization: {state['prioritization']}
 Write a full PRD in markdown with these sections: Problem Statement,
 Objectives, Target Users, User Stories, Functional Requirements,
 Non-Functional Requirements, Success Metrics/KPIs, Risks, Timeline,
-Explicitly Out of Scope."""
+Explicitly Out of Scope.
+
+At the very top, include:
+Product: [a short product name you choose]
+Prepared by: {author}
+Date: [today's date]
+
+Do NOT invent or use any other name for "Prepared by" - use exactly: {author}"""
 
     prd_text = ask_text(SYSTEM_PROMPT, prompt)
     state["prd_draft"] = prd_text
