@@ -10,6 +10,7 @@ llm = ChatGroq(
     model="openai/gpt-oss-120b",
     api_key=os.environ.get("GROQ_API_KEY"),
     temperature=0.4,
+    max_tokens=8000,  # without this, long PRDs get cut off mid-document
 )
 
 
