@@ -62,6 +62,13 @@ the tag on every cell, but only if you place it directly under the table:
 "*All figures in this table are placeholders (ASSUMED - validate with real
 data before use).*"
 
+Do NOT create a separate column (e.g. a column literally called
+"Assumption") to hold this tag - that column will end up blank or
+inconsistent. The tag must be embedded directly inline within the same
+cell as the number itself, or handled via the one footnote method above.
+Every column you create must have every cell filled - never leave a
+column with blank cells below its header.
+
 === CRITICAL RULE 2: NO INVENTED PEOPLE ===
 Do NOT invent named individuals (e.g. "Priya Singh", "John Doe", "Luis
 Martínez") for owner/lead/team fields anywhere in the document, including
