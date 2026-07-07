@@ -47,6 +47,15 @@ def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
         h3 {{ font-size: 13px; margin-top: 12px; }}
         li {{ margin-bottom: 4px; }}
         strong {{ font-weight: bold; }}
+        table {{ border-collapse: collapse; width: 100%; margin: 10px 0; }}
+        th, td {{
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+            text-align: left;
+            vertical-align: top;
+        }}
+        th {{ background-color: #f2f2f2; }}
+        td p, th p {{ margin: 0; padding: 0; }}
     </style>
     </head>
     <body>{html_body}</body>
