@@ -19,7 +19,17 @@ Requirements, Non-Functional Requirements, Success Metrics/KPIs, Risks,
 Timeline, Explicitly Out of Scope). Do NOT suggest adding new sections
 (like a RACI chart, appendix, or glossary) - flag issues WITHIN the
 existing sections only. Keep feedback to at most 4 issues so revisions
-stay focused and don't balloon in length."""
+stay focused and don't balloon in length.
+
+ALSO CHECK: any specific number, percentage, or metric in the PRD that
+looks invented (not explicitly given by the user) must be labeled
+"(ASSUMED - validate with real data before use)". If you find a precise
+number without that label, flag it as an issue - presenting a made-up
+number as real data is a serious problem, not a minor one.
+
+ALSO CHECK: any owner/lead field with an invented named individual (e.g.
+"Priya Singh", "John Doe") instead of a team/role name. Flag this as an
+issue too - fabricated employee names are misleading."""
 
 MAX_REVISIONS = 2  # safety limit so the loop can't run forever
 
